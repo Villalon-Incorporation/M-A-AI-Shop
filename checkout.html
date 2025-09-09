@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>M&A AI's - Secure Checkout (Demo)</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="main.css" />
+    <noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+
+    <style>
+        .checkout-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+        .checkout-form-container {
+            flex-basis: 60%;
+            max-width: 600px;
+        }
+        .order-summary {
+            flex-basis: 30%;
+            max-width: 400px;
+            background-color: #f9f9f9;
+            padding: 2em;
+            border-radius: 8px;
+        }
+        .order-summary h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 0.5em;
+        }
+        .payment-methods {
+            margin-top: 1em;
+            display: flex;
+            gap: 1em;
+        }
+        .payment-methods .tab {
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .payment-methods .tab.active {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-bottom-color: #fff;
+        }
+        .payment-content {
+            border: 1px solid #ccc;
+            padding: 2em;
+            background-color: #fff;
+        }
+        .credit-card-form, .paypal-form {
+            display: none;
+        }
+        form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-row {
+            display: flex;
+            gap: 1em;
+        }
+        .form-row input {
+            flex-grow: 1;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <div id="header">
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1><a href="index.html" id="logo">M&A AI's</a></h1>
+                    <hr />
+                    <p>"Where Opportunists Forge Reality"©- 2025</p>
+                </header>
+                <footer>
+                    <a href="index.html#banner" class="button circled scrolly">Continue Shopping</a>
+                </footer>
+            </div>
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main -->
+        <div class="wrapper style2">
+            <article id="main" class="container special">
+                <header>
+                    <h2>AI Checkout</h2>
+                    <p> Enter Credit Card Information (Or be redirected to PayPal)</p>
+                </header>
+                <div class="checkout-container">
+                    <div class="checkout-form-container">
+                        <h3>Billing Information</h3>
+                        <form id="checkout-form">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="text" placeholder="Address" required>
+                            <div class="form-row">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="Zip Code" required>
+                            </div>
+                            <input type="text" placeholder="Email" required>
+                            
+                            <h3>Payment</h3>
+                            <div class="payment-methods">
+                                <div class="tab active" data-target="card-form">Pay with Card</div>
+                                <div class="tab" data-target="paypal-form">Pay with PayPal</div>
+                            </div>
+                            <div class="payment-content">
+                                <div id="card-form" class="credit-card-form" style="display: block;">
+                                    <input type="text" placeholder="Card Number" required>
+                                    <input type="text" placeholder="Name on Card" required>
+                                    <div class="form-row">
+                                        <input type="text" placeholder="MM/YY" required>
+                                        <input type="text" placeholder="CVV" required>
+                                    </div>
+                                </div>
+                                <div id="paypal-form" class="paypal-form">
+                                    <p>You will be redirected to the PayPal website to complete your purchase securely.</p>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="submit-button">Complete Order</button>
+                        </form>
+                    </div>
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div class="product-item">
+                            <p><strong id="summary-bot-name">Bot Name</strong></p>
+                            <p>Price: <span id="summary-bot-price">$99.99</span></p>
+                        </div>
+                        <hr>
+                        <div class="cart-total">
+                            <p><strong>Total:</strong> <span id="summary-total-price">$99.99</span></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+
+							<!-- Tweets -->
+								<section class="col-4 col-12-mobile">
+									<header>
+										<i class='bxr  bx-happy-beaming'></i> 
+									</header>
+									<ul class="divided">
+										<li>
+											<article class="tweet">	
+
+												"really useful, I didn't know I needed this till I had it"
+												<span class="timestamp">5 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												"awesome AI"
+												<span class="timestamp">30 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												"M&A Shop needs to BE ON top, fully satisfied ......"
+												<span class="timestamp">3 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												"I was having trouble keeping my customers data in control, M&A IA now lets me know their data is safe"
+												<span class="timestamp">5 hours ago</span>
+											</article>
+										</li>
+									</ul>
+								</section>
+
+							<!-- Posts -->
+								
+
+							<!-- Photos -->
+								<section class="col-4 col-12-mobile">
+									<header>
+										<h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
+									</header>
+									<div class="row gtr-25">
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="TCCC.png" alt="" />-------------Back to top !!</a>
+										</div>
+										<div class="col-6">
+											<a href="#" class="image fit"><img src="images/pic11.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section>
+
+						</div>
+						<hr />
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>Contacts?</h3>
+										</header>
+										<p>Please dont hesitate to reach out to us in our main office for any questions!</p>
+										<ul class="icons">
+											<li><i class='bx  bx-phone-plus'  ></i> <span class="label">Office Phone :</span></a></li>
+											<li> 912 000 0000</li>
+										</ul>
+									</section>
+
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; M&A INC. All rights reserved.</li><li>Powered By: <a href="villa.html">VillaINC</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+    </div>
+    <!-- Scripts -->
+			<script src="jquery.min.js"></script>
+			<script src="jquery.dropotron.min.js"></script>
+			<script src="jquery.scrolly.min.js"></script>
+			<script src="jquery.scrollex.min.js"></script>
+			<script src="browser.min.js"></script>
+			<script src="breakpoints.min.js"></script>
+			<script src="util.js"></script>
+			<script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const botId = urlParams.get('bot');
+
+            const botDetails = {
+                'customer-ai': { name: "Customer AI Bot", price: "99.99" },
+                'cloud-data-bot': { name: "Cloud Data Bot", price: "129.99" },
+                'security-bot': { name: "Security Bot", price: "199.99" },
+                'website-health-bot': { name: "Website Health Bot", price: "79.99" },
+                'code-review-bot': { name: "Code Review Bot", price: "149.99" },
+                'socials-tracker-bot': { name: "Socials Tracker Bot", price: "89.99" },
+                'admin-follower-bot': { name: "Admin Follower Bot", price: "69.99" },
+                'threat-prevention-bot': { name: "Threat Prevention Bot", price: "179.99" },
+                'nlp-bot': { name: "Natural Learning Processor Bot", price: "249.99" },
+                'website-debugger-bot': { name: "Website Debugger Bot", price: "119.99" }
+            };
+
+            if (botId && botDetails[botId]) {
+                const bot = botDetails[botId];
+                document.getElementById('summary-bot-name').textContent = bot.name;
+                document.getElementById('summary-bot-price').textContent = `$${bot.price}`;
+                document.getElementById('summary-total-price').textContent = `$${bot.price}`;
+            } else {
+                document.getElementById('main').innerHTML = `
+                    <header>
+                        <h2>Error: Product Not Found</h2>
+                        <p>Please return to the store to select a product.</p>
+                    </header>
+                `;
+            }
+
+            // Payment method tabs
+            const tabs = document.querySelectorAll('.payment-methods .tab');
+            const cardForm = document.getElementById('card-form');
+            const paypalForm = document.getElementById('paypal-form');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    if (tab.dataset.target === 'card-form') {
+                        cardForm.style.display = 'block';
+                        paypalForm.style.display = 'none';
+                    } else {
+                        cardForm.style.display = 'none';
+                        paypalForm.style.display = 'block';
+                    }
+                });
+            });
+
+            // Demo form submission
+            const checkoutForm = document.getElementById('checkout-form');
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('This is a demo checkout. No real payment will be processed. Thank you!');
+                // For a real site, you would handle the payment processing here
+            });
+        });
+    </script>
+</body>
+</html>
